@@ -13,6 +13,7 @@ from __future__ import annotations
 import logging
 import sys
 import time
+import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -152,7 +153,7 @@ class FinancialIndexer:
 
     def __init__(
         self,
-        persist_directory: str = DEFAULT_PERSIST_DIRECTORY,
+        persist_directory: str = os.getenv("CHROMA_DB_PATH", "data/chroma_db"),
         collection_name: str = DEFAULT_COLLECTION_NAME,
         embedding_model_name: str = DEFAULT_EMBEDDING_MODEL_NAME,
         raw_data_dir: str = DEFAULT_RAW_DATA_DIRECTORY,
