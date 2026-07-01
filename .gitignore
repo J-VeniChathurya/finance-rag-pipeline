@@ -1,0 +1,21 @@
+# --- Environment & secrets ---
+.env
+
+# --- Python virtual environment ---
+.venv/
+
+# --- Python bytecode / cache ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Vector store / local DB artifacts ---
+data/chroma_db/
+
+# --- Raw source PDFs (large / sensitive) ---
+data/raw/*.pdf
+
+# --- OS / editor cruft ---
+.DS_Store
+.vscode/
+.idea/
