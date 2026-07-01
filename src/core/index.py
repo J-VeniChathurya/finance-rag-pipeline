@@ -16,7 +16,8 @@ import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-
+from dotenv import load_dotenv
+load_dotenv()
 # --------------------------------------------------------------------------
 # Third-party / LangChain imports
 # --------------------------------------------------------------------------
@@ -27,26 +28,21 @@ except ImportError as import_error:
         "langchain-core is required. Install it with: pip install langchain-core"
     ) from import_error
 
+
 try:
-    from langchain_huggingface import HuggingFaceEmbeddings
-except ImportError:
-    try:
-        from langchain_community.embeddings import HuggingFaceEmbeddings  # type: ignore
-    except ImportError as import_error:
-        raise ImportError(
-            "Could not import HuggingFaceEmbeddings. Install with: "
-            "pip install langchain-huggingface sentence-transformers"
-        ) from import_error
+    from langchain_huggingface import HuggingFaceEmbeddings  # type: ignore
+except ImportError as import_error:
+    raise ImportError(
+        "Could not import HuggingFaceEmbeddings. Install with: "
+        "pip install langchain-huggingface sentence-transformers"
+    ) from import_error
 
 try:
     from langchain_chroma import Chroma
-except ImportError:
-    try:
-        from langchain_community.vectorstores import Chroma  # type: ignore
-    except ImportError as import_error:
-        raise ImportError(
-            "Could not import Chroma. Install with: pip install langchain-chroma chromadb"
-        ) from import_error
+except ImportError as import_error:
+    raise ImportError(
+        "Could not import Chroma. Install with: pip install langchain-chroma chromadb"
+    ) from import_error
 
 # --------------------------------------------------------------------------
 # Upstream ingestion pipeline (Day 1 Contract Alignment)
