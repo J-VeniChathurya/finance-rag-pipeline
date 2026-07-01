@@ -9,12 +9,13 @@ __pycache__/
 *.pyc
 *.pyo
 
+logs/
 # --- Vector store / local DB artifacts ---
 data/chroma_db/
 
 # --- Raw source PDFs (large / sensitive) ---
 data/raw/*.pdf
-
+data/raw/*.txt
 # --- OS / editor cruft ---
 .DS_Store
 .vscode/
